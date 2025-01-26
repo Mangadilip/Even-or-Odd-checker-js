@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>even or odd checker</title>
+    <style>
+      body {
+        background-color: black;
+        text-align: center;
+      }
+      h1 {
+        color: white;
+        text-decoration: underline;
+      }
+      #myform {
+        border: 2px solid;
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        /* color: white; */
+        margin-left: auto;
+        margin-right: auto;
+        background-color: pink;
+      }
+      #op {
+        /* border:1px solid; */
+        height: 50px;
+        background-color: white;
+        align-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Even or Odd checker-in form events</h1>
+    <form id="myform">
+      <br />
+      <label for="num">Even or Odd checker:</label><br /><br />
+      <input
+        type="text"
+        id="num"
+        placeholder="Enter a number"
+        required
+      /><br /><br />
+      <input type="submit" />
+    </form>
+    <h2 id="op"></h2>
+    <script>
+      let form = document.getElementById("myform");
+      let h2 = document.getElementById("op");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let inputnumber = document.getElementById("num").value;
+        if (!isNaN(inputnumber)) {
+          if (inputnumber % 2 === 0) {
+            h2.innerHTML = `${inputnumber} is Even`;
+          } else {
+            h2.innerHTML = `${inputnumber} is Odd`;
+          }
+        } else {
+          h2.innerHTML = "Please enter a vaild number";
+        }
+      });
+      form.append(h2);
+    </script>
+  </body>
+</html>
